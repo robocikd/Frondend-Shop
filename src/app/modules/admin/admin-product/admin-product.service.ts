@@ -15,4 +15,7 @@ export class AdminProductService {
       `/api/admin/products?page=${page}&size=${size}`
     );
   }
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>('/api/admin/product/' + id);
+  }
 }
