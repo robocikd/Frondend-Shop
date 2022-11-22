@@ -46,7 +46,7 @@ import { FormGroup } from '@angular/forms';
     </div>
   </div>`,
 })
-export class AdminProductFormController implements OnInit {
+export class AdminProductFormComponent implements OnInit {
   @Input() parentForm!: FormGroup;
   ngOnInit(): void {}
 }
