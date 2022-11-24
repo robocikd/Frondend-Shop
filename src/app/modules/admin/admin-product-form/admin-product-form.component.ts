@@ -11,7 +11,10 @@ import { FormGroup } from '@angular/forms';
         placeholder="Podaj nazę produktu"
         formControlName="name"
       />
-      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="errorMessage">
+      <div
+        *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+        class="errorMessage"
+      >
         <div *ngIf="name?.errors?.['required']">
           <p>Nazwa jest wymagana</p>
         </div>
@@ -20,6 +23,23 @@ import { FormGroup } from '@angular/forms';
         </div>
       </div>
     </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Przyjazny url</mat-label>
+      <input matInput placeholder="Podaj url" formControlName="slug" />
+      <div
+        *ngIf="slug?.invalid && (slug?.dirty || slug?.touched)"
+        class="errorMessage"
+      >
+        <div *ngIf="slug?.errors?.['required']">
+          <p>Url jest wymagany</p>
+        </div>
+        <div *ngIf="slug?.errors?.['minlength']">
+          <p>Url musi mieć przynajmniej 4 znaki</p>
+        </div>
+      </div>
+    </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label> Opis </mat-label>
       <textarea
@@ -32,7 +52,8 @@ import { FormGroup } from '@angular/forms';
         *ngIf="
           description?.invalid && (description?.dirty || description?.touched)
         "
-        class="errorMessage">
+        class="errorMessage"
+      >
         <div *ngIf="description?.errors?.['required']">
           <p>Opis jest wymagany</p>
         </div>
@@ -48,7 +69,10 @@ import { FormGroup } from '@angular/forms';
         placeholder="Podaj kategorię produktu"
         formControlName="category"
       />
-      <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="errorMessage">
+      <div
+        *ngIf="category?.invalid && (category?.dirty || category?.touched)"
+        class="errorMessage"
+      >
         <div *ngIf="category?.errors?.['required']">
           <p>Kategoria jest wymagana</p>
         </div>
@@ -64,7 +88,10 @@ import { FormGroup } from '@angular/forms';
         placeholder="Podaj cenę produktu"
         formControlName="price"
       />
-      <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="errorMessage">
+      <div
+        *ngIf="price?.invalid && (price?.dirty || price?.touched)"
+        class="errorMessage"
+      >
         <div *ngIf="price?.errors?.['required']">
           <p>Cena jest wymagana</p>
         </div>
@@ -79,7 +106,10 @@ import { FormGroup } from '@angular/forms';
     <mat-form-field appearance="fill">
       <mat-label> Waluta </mat-label>
       <input matInput placeholder="Podaj walutę" formControlName="currency" />
-      <div *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)" class="errorMessage">
+      <div
+        *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)"
+        class="errorMessage"
+      >
         <div *ngIf="currency?.errors?.['required']">
           <p>Waluta jest wymagana</p>
         </div>
@@ -118,5 +148,8 @@ export class AdminProductFormComponent implements OnInit {
   }
   get currency() {
     return this.parentForm.get('currency');
+  }
+  get slug() {
+    return this.parentForm.get('slug');
   }
 }
