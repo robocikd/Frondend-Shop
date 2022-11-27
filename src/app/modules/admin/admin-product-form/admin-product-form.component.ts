@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { AdminCategoryNameDto } from './adminCategoryNameDto';
+import { AdminCategoryNameDto } from '../common/dto/adminCategoryNameDto';
 import { FormCategoryService } from './form-category.service';
 
 @Component({
@@ -97,7 +97,9 @@ import { FormCategoryService } from './form-category.service';
         </mat-option>
       </mat-select>
       <div
-        *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)"
+        *ngIf="
+          categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)
+        "
         class="errorMessage"
       >
         <div *ngIf="categoryId?.errors?.['required']">
