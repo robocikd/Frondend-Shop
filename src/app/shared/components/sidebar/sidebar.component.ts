@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarCategory } from './model/sidebarCategory';
+import { SidebarService } from './sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,14 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  categories = [
-    'Kategoria 1',
-    'Kategoria 2',
-    'Kategoria 3',
-    'Kategoria 4',
-    'Kategoria 5',
-  ];
-  constructor() {}
+  categories: Array<SidebarCategory> = [];
+  constructor(private categoriesService: SidebarService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCategories();
+  }
+
+  getCategories() {
+    this.categoriesService
+      .getCategories()
+      .subscribe((categories) => (this.categories = categories));
+  }
 }
