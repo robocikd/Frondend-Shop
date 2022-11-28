@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable } from '@angular/material/table';
 import { map, startWith, switchMap } from 'rxjs';
-import { AdminConfirmDialogService } from '../admin-confirm-dialog.service';
+import { AdminConfirmDialogService } from '../common/service/admin-confirm-dialog.service';
 import { AdminProductService } from './admin-product.service';
 import { AdminProduct } from './adminProduct';
 
@@ -42,7 +42,7 @@ export class AdminProductComponent implements AfterViewInit {
 
   confirmDelete(element: AdminProduct) {
     this.adminConfirmDialogService
-      .openConfirmDialog("Czy na pewno chcesz usunąć ten produkt?")
+      .openConfirmDialog('Czy na pewno chcesz usunąć ten produkt?')
       .afterClosed()
       .subscribe((result) => {
         if (result) {
