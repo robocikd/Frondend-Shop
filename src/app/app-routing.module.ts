@@ -9,6 +9,7 @@ import { AdminCategoryComponent } from './modules/admin/admin-category/admin-cat
 import { AdminProductAddComponent } from './modules/admin/admin-product/admin-product-add/admin-product-add.component';
 import { AdminProductUpdateComponent } from './modules/admin/admin-product/admin-product-update/admin-product-update.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
+import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CategoryComponent } from './modules/category/category.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -80,6 +81,10 @@ const routes: Routes = [
       {
         path: 'admin/categories/update/:id',
         component: AdminCategoryUpdateComponent,
+      },
+      {
+        path: 'admin/reviews',
+        component: AdminReviewComponent,
       },
     ],
   },
