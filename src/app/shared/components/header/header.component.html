@@ -1,17 +1,18 @@
 <header fxLayoutAlign="start center">
-    <div fxFlex fxLayoutAlign="start end" fxLayoutGap="15">
-        <mat-icon color="accent" class="logoIcon">store</mat-icon>
-        <span class="logo">
-            {{title}}
-        </span>
-    </div>
-    <div fxLayoutGap="15" fxLayoutAlign="start center">
-        <button mat-flat-button color="basic" routerLink="">Strona główna</button>
-        <button mat-flat-button color="basic" routerLink="/products">Produkty</button>
-        <span></span>
-        <button mat-flat-button color="basic" routerLink="/login">Zaloguj</button>
-        <a routerLink="/cart">
-            <mat-icon color="accent" class="shoppingBasket">shopping_basket</mat-icon>
-        </a>
-    </div>
+  <div fxFlex fxLayoutAlign="start end" fxLayoutGap="15">
+    <mat-icon color="accent" class="logoIcon">store</mat-icon>
+    <span class="logo">
+      {{title}}
+    </span>
+  </div>
+  <div fxLayoutGap="15" fxLayoutAlign="start center">
+    <button mat-flat-button color="basic" routerLink="">Strona główna</button>
+    <button mat-flat-button color="basic" routerLink="/products">Produkty</button>
+    <span></span>
+    <button mat-flat-button color="basic" routerLink="/login">Zaloguj</button>
+    <a routerLink="/cart">
+      <mat-icon matBadge="{{cartProductCounter}}" matBadgeColor="warn" color="accent" class="shoppingBasket">
+        shopping_basket</mat-icon>
+    </a>
+  </div>
 </header>
