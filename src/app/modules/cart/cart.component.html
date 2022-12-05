@@ -1,6 +1,11 @@
 <h1>Koszyk</h1>
 <form *ngIf="summary?.items?.length" [formGroup]="formGroup">
   <div>
+    <div>
+      <button mat-flat-button color="warn" (click)="back()" class="backButton">
+        Kontynuj zakupy
+      </button>
+    </div>
     <div fxLayout="row" fxLayoutAlign="space-between start" class="card-hrow">
       <div class="cart-hcol-1">Obraz</div>
       <div class="cart-hcol-2">Nazwa</div>
@@ -22,7 +27,7 @@
           <div class="cart-col-3"><input formControlName="quantity" class="quantityInput"></div>
           <div class="cart-col-4">{{item.value?.lineValue}}</div>
           <div class="cart-col-5">
-            <button mat-icon-button (click)="deleteItem(item.value?.id)">
+            <button mat-icon-button (click)="deleteItem(item.value?.id)" type="button">
               <mat-icon>delete</mat-icon>
             </button>
           </div>

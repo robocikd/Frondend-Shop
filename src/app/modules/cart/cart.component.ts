@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { CartService } from './cart.service';
 import { CartSummary } from './model/cartSummary';
 import { CartSummaryItem } from './model/cartSummaryItem';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -15,14 +16,15 @@ import { CartSummaryItem } from './model/cartSummaryItem';
 export class CartComponent implements OnInit {
   summary!: CartSummary;
   formGroup!: FormGroup;
-
+  private isProductAdded = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartService,
     private cookieService: CookieService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private cartIconService: CartIconService
+    private cartIconService: CartIconService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -30,8 +32,10 @@ export class CartComponent implements OnInit {
       this.activatedRoute.snapshot.queryParams['productId']
     );
     if (productId > 0) {
+      this.isProductAdded = true;
       this.addToCart(productId);
     } else {
+      this.isProductAdded = false;
       this.getCart();
     }
     this.formGroup = this.formBuilder.group({
@@ -107,6 +111,10 @@ export class CartComponent implements OnInit {
     this.cartService.deleteCartItem(itemId).subscribe(() => {
       this.ngOnInit();
     });
+  }
+
+  back() {
+    this.location.historyGo(this.isProductAdded ? -2 : -1);
   }
 
   get items() {
