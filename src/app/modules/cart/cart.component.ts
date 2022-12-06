@@ -4,9 +4,9 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { CartService } from './cart.service';
-import { CartSummary } from './model/cartSummary';
-import { CartSummaryItem } from './model/cartSummaryItem';
 import { Location } from '@angular/common';
+import { CartSummary } from '../common/model/cart/cartSummary';
+import { CartSummaryItem } from '../common/model/cart/cartSummaryItem';
 
 @Component({
   selector: 'app-cart',

@@ -1,3 +1,4 @@
+import { OrderComponent } from './../../modules/order/order.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default.component';
@@ -18,7 +19,8 @@ import { CartComponent } from 'src/app/modules/cart/cart.component';
     ProductComponent,
     ProductDetailsComponent,
     CategoryComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent,
   ],
   imports: [
     CommonModule,

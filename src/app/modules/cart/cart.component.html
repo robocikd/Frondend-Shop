@@ -1,11 +1,6 @@
 <h1>Koszyk</h1>
 <form *ngIf="summary?.items?.length" [formGroup]="formGroup">
   <div>
-    <div>
-      <button mat-flat-button color="warn" (click)="back()" class="backButton">
-        Kontynuj zakupy
-      </button>
-    </div>
     <div fxLayout="row" fxLayoutAlign="space-between start" class="card-hrow">
       <div class="cart-hcol-1">Obraz</div>
       <div class="cart-hcol-2">Nazwa</div>
@@ -40,6 +35,14 @@
     <div fxLayoutAlign="end start">
       <div class="summary"> Wartość: </div>
       <div class="summary"> <b>{{summary.summary.grossValue}}</b></div>
+    </div>
+    <div>
+      <button type="button" mat-flat-button color="warn" (click)="back()">
+        Kontynuj zakupy
+      </button>
+    </div>
+    <div fxLayoutAlign="end start">
+      <button type="button" class="orderButton" mat-flat-button color="accent" routerLink="/order">Zamawiam</button>
     </div>
   </div>
 </form>
