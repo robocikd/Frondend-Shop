@@ -1,13 +1,16 @@
 .orderForm {
   width: 400px;
 }
+
 .errorMessage {
   color: red;
 }
+
 .orderButton {
   font-size: 22px;
   width: 220px;
 }
+
 .cart-hcol-1,
 .cart-hcol-2,
 .cart-hcol-3,
@@ -19,6 +22,7 @@
   min-width: 110px;
   text-align: center;
 }
+
 .cart-col-1,
 .cart-col-2,
 .cart-col-3,
@@ -29,30 +33,59 @@
   width: 100px;
   text-align: center;
 }
+
 .cart-hcol-2,
 .cart-col-2 {
   min-width: 250px;
 }
+
 .summary {
   padding: 7px;
   font-size: 18px;
   width: 100px;
   text-align: center;
 }
+
 .card-hrow,
 .card-row {
   background: white;
   padding: 4px;
   border-bottom: 1px solid #eee;
 }
+
 .summary {
   background: white;
   padding: 11px;
   border-bottom: 1px solid #eee;
 }
+
 .orderSummary {
   font-size: 18px;
 }
+
 .orderSummary div {
   margin-bottom: 12px;
+}
+
+.shipmentRadioButton {
+  margin: 15px 0;
+  font-size: 18px;
+}
+
+.shipment-2 {
+  margin-left: 10px;
+  font-weight: bolder;
+}
+
+.orderTotal {
+  background: white;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.orderTotalValue {
+  font-size: 24px;
+  font-weight: 700;
 }

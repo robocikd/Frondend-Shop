@@ -5,6 +5,7 @@ import { CartSummary } from './../common/model/cart/cartSummary';
 import { OrderService } from './order.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
+import { InitData } from './model/initData';
 
 @Component({
   selector: 'app-order',
@@ -16,11 +17,12 @@ export class OrderComponent implements OnInit {
   formGroup!: FormGroup;
   orderSummary!: OrderSummary;
   private statuses = new Map<string, string>([['NEW', 'NOWE']]);
+  initData!: InitData;
   constructor(
     private cookieService: CookieService,
     private orderService: OrderService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.checkedCartEmpty();
@@ -32,7 +34,9 @@ export class OrderComponent implements OnInit {
       city: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
+      shipment: ['', Validators.required],
     });
+    this.getInitData();
   }
 
   checkedCartEmpty() {
@@ -54,12 +58,26 @@ export class OrderComponent implements OnInit {
           email: this.formGroup.get('email')?.value,
           phone: this.formGroup.get('phone')?.value,
           cartId: Number(this.cookieService.get('cartId')),
+          shipmentId: Number(this.formGroup.get('shipment')?.value.id),
         } as OrderDto)
         .subscribe((orderSummary) => {
           this.orderSummary = orderSummary;
           this.cookieService.delete('cartId');
         });
     }
+  }
+
+  getInitData() {
+    this.orderService.getInitData().subscribe(initData => {
+      this.initData = initData;
+      this.setDefaultShipment();
+    });
+  }
+  setDefaultShipment() {
+    this.formGroup.patchValue({
+      "shipment": this.initData.shipments
+        .filter(shipment => shipment.defaultShipment === true)[0]
+    });
   }
 
   getStatus(status: string) {
@@ -86,5 +104,8 @@ export class OrderComponent implements OnInit {
   }
   get phone() {
     return this.formGroup.get('phone');
+  }
+  get shipment() {
+    return this.formGroup.get('shipment');
   }
 }
