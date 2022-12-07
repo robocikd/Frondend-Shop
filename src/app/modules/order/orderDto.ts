@@ -8,4 +8,5 @@ export interface OrderDto {
   phone: string;
   cartId: number;
   shipmentId: number;
+  paymentId: number;
 }

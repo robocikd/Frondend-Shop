@@ -67,7 +67,8 @@
   margin-bottom: 12px;
 }
 
-.shipmentRadioButton {
+.shipmentRadioButton,
+.paymentRadioButton {
   margin: 15px 0;
   font-size: 18px;
 }
@@ -87,5 +88,9 @@
 
 .orderTotalValue {
   font-size: 24px;
+  font-weight: 700;
+}
+
+.paymentNote {
   font-weight: 700;
 }
