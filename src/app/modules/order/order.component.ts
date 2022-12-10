@@ -6,6 +6,7 @@ import { OrderService } from './order.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { InitData } from './model/initData';
+import { CartIconService } from '../common/service/cart-icon.service';
 
 @Component({
   selector: 'app-order',
@@ -22,7 +23,8 @@ export class OrderComponent implements OnInit {
   constructor(
     private cookieService: CookieService,
     private orderService: OrderService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private cartIconService: CartIconService
   ) { }
 
   ngOnInit(): void {
@@ -67,6 +69,7 @@ export class OrderComponent implements OnInit {
           next: (orderSummary) => {
             this.orderSummary = orderSummary;
             this.cookieService.delete('cartId');
+            this.cartIconService.cartChange(0);
             this.errorMessage = false;
           },
           error: err => this.errorMessage = true
