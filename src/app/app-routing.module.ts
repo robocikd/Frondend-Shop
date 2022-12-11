@@ -18,6 +18,8 @@ import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
+import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.component';
+import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
 
 const routes: Routes = [
   {
@@ -95,6 +97,14 @@ const routes: Routes = [
       {
         path: 'admin/reviews',
         component: AdminReviewComponent,
+      },
+      {
+        path: 'admin/orders',
+        component: AdminOrderComponent,
+      },
+      {
+        path: 'admin/orders/update/:id',
+        component: AdminOrderUpdateComponent,
       },
     ],
   },
