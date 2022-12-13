@@ -5,3 +5,27 @@
     min-width: 450px;
     padding: 4px 0; 
 }
+.status-PAID{
+    background-color: rgb(250, 158, 158);
+    padding: 7px;
+}
+.status-PROCESSING{
+    background-color: rgb(250, 231, 170);
+    padding: 7px;
+}
+.status-WAITING_FOR_DELIVERY{
+    background-color: rgb(253, 217, 253);
+    padding: 7px;
+}
+.status-COMPLETED{
+    background-color: rgb(219, 218, 253);
+    padding: 7px;
+}
+.status-CANCELED{
+    background-color: rgb(236, 238, 237);
+    padding: 7px;
+}
+.status-REFUND{
+    background-color: rgb(177, 176, 176);
+    padding: 7px;
+}
