@@ -20,6 +20,7 @@ import { ProductDetailsComponent } from './modules/product-details/product-detai
 import { ProductComponent } from './modules/product/product.component';
 import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.component';
 import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
+import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-order-export/admin-order-export.component';
 
 const routes: Routes = [
   {
@@ -106,6 +107,10 @@ const routes: Routes = [
         path: 'admin/orders/update/:id',
         component: AdminOrderUpdateComponent,
       },
+      {
+        path: 'admin/orders/export',
+        component: AdminOrderExportComponent,
+      },
     ],
   },
 ];
@@ -114,4 +119,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
