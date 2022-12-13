@@ -1,11 +1,12 @@
-import { AdminOrderRow } from "./adminOrderRow"
-import { AdminPayment } from "./adminPayment"
+import { AdminOrderLog } from "./adminOrderLog";
+import { AdminOrderRow } from "./adminOrderRow";
+import { AdminPayment } from "./adminPayment";
 
-export interface AdminOrder{
+export interface AdminOrder {
     id: number,
     placeDate: Date,
     orderStatus: string,
-    orderRows: Array<AdminOrderRow>
+    orderRows: Array<AdminOrderRow>;
     grossValue: number,
     firstname: string,
     lastname: string,
@@ -14,5 +15,6 @@ export interface AdminOrder{
     city: string,
     email: string,
     phone: string,
-    payment: AdminPayment
+    payment: AdminPayment,
+    orderLogs: Array<AdminOrderLog>;
 }
