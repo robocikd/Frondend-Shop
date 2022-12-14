@@ -21,6 +21,7 @@ import { ProductComponent } from './modules/product/product.component';
 import { AdminOrderComponent } from './modules/admin/admin-order/admin-order.component';
 import { AdminOrderUpdateComponent } from './modules/admin/admin-order/admin-order-update/admin-order-update.component';
 import { AdminOrderExportComponent } from './modules/admin/admin-order/admin-order-export/admin-order-export.component';
+import { AdminOrderStatisticsComponent } from './modules/admin/admin-order/admin-order-statistics/admin-order-statistics.component';
 
 const routes: Routes = [
   {
@@ -110,6 +111,10 @@ const routes: Routes = [
       {
         path: 'admin/orders/export',
         component: AdminOrderExportComponent,
+      },
+      {
+        path: 'admin/orders/statistics',
+        component: AdminOrderStatisticsComponent,
       },
     ],
   },
