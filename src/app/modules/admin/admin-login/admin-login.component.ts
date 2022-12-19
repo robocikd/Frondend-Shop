@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { JwtService } from '../../common/service/jwt.service';
 import { AdminLoginService } from './admin-login.service';
 
 @Component({
@@ -12,7 +14,9 @@ export class AdminLoginComponent implements OnInit {
   formGroup!: FormGroup;
   loginError = false;
   constructor(private formBuilder: FormBuilder,
-    private adminLoginService: AdminLoginService) { }
+    private adminLoginService: AdminLoginService,
+    private jwtService: JwtService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.formGroup = this.formBuilder.group({
@@ -25,7 +29,11 @@ export class AdminLoginComponent implements OnInit {
     if (this.formGroup.valid) {
       this.adminLoginService.login(this.formGroup.value)
         .subscribe({
-          next: () => this.loginError = false,
+          next: (response) => {
+            this.loginError = false;
+            this.jwtService.setToken(response.token);
+            this.router.navigate(["/admin"]);
+          },
           error: () => this.loginError = true,
         });
     }
