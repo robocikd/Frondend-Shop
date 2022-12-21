@@ -25,6 +25,7 @@ import { AdminOrderStatisticsComponent } from './modules/admin/admin-order/admin
 import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
 import { FullpageadminemptyComponent } from './layouts/fullpageadminempty/fullpageadminempty.component';
 import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,10 @@ const routes: Routes = [
       {
         path: 'order',
         component: OrderComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
     ],
   },
