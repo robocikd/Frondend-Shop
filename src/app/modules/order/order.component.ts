@@ -7,6 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { InitData } from './model/initData';
 import { CartIconService } from '../common/service/cart-icon.service';
+import { JwtService } from '../common/service/jwt.service';
 
 @Component({
   selector: 'app-order',
@@ -20,11 +21,14 @@ export class OrderComponent implements OnInit {
   private statuses = new Map<string, string>([['NEW', 'NOWE']]);
   initData!: InitData;
   errorMessage = false;
+  isLoggedIn = false;
+
   constructor(
     private cookieService: CookieService,
     private orderService: OrderService,
     private formBuilder: FormBuilder,
-    private cartIconService: CartIconService
+    private cartIconService: CartIconService,
+    private jwtService: JwtService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +45,7 @@ export class OrderComponent implements OnInit {
       payment: ['', Validators.required],
     });
     this.getInitData();
+    this.isLoggedIn = this.jwtService.isLoggedIn();
   }
 
   checkedCartEmpty() {
