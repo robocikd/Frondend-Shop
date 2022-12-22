@@ -2,6 +2,7 @@ import { CartIconService } from './../../../modules/common/service/cart-icon.ser
 import { HeaderService } from './header.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
+import { JwtService } from 'src/app/modules/common/service/jwt.service';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +12,17 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   title = 'Shop';
   cartProductCounter = '';
+  isLoggedIn = false;
 
   constructor(
     private cookieService: CookieService,
     private headerService: HeaderService,
-    private cartIconService: CartIconService
-  ) {}
+    private cartIconService: CartIconService,
+    private jwtService: JwtService,
+  ) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.jwtService.isLoggedIn();
     this.getCountProducts();
     this.cartIconService.subjectIcon.subscribe(
       (counter) =>
