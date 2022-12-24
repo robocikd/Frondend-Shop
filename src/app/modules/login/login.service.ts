@@ -17,4 +17,13 @@ export class LoginService {
   register(register: any): Observable<any> {
     return this.http.post("/api/register", register);
   }
+
+  lostPassword(emailObject: any): Observable<any> {
+    return this.http.post("/api/lostPassword", emailObject);
+  }
+
+  changePassword(passwordObject: any): Observable<any> {
+    return this.http.post("/api/changePassword", passwordObject);
+  }
+
 }
