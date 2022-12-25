@@ -1,4 +1,6 @@
-const proxy = required('http-proxy-middleware');
+const express = require('express');
+const path = require('path');
+const proxy = require('http-proxy-middleware');
 const app = express();
 
 const apiProxy = proxy.createProxyMiddleware("/api", {
