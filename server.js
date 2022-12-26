@@ -14,8 +14,8 @@ const apiProxy = proxy.createProxyMiddleware("/api", {
 app.use(apiProxy);
 app.use(express.static(__dirname + "/dist/shop"));
 
-app.get("/*", (res, req)=>{
-    res.sendFile(__dirname + "/dist/shop/index.html")
+app.get("/*", (req, res) => {
+    res.sendFile(__dirname + "/dist/shop/index.html");
 });
 
 app.listen(process.env.PORT || 3000);
