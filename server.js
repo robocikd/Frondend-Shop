@@ -5,7 +5,7 @@ const app = express();
 
 const apiProxy = proxy.createProxyMiddleware("/api", {
     target: process.env.BACKEND_URL || 'https://backend-shop-production.up.railway.app/',
-    changOrigin: true,
+    changeOrigin: true,
     pathRewrite: {
         '^/api':''
     }
