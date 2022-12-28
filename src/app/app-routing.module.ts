@@ -28,6 +28,7 @@ import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorize
 import { ProfileComponent } from './modules/profile/profile.component';
 import { ProfileAuthorizeGuard } from './modules/common/guard/profileAuthorizeGuard';
 import { LostPasswordComponent } from './modules/login/lost-password/lost-password.component';
+import { OrderNotificationComponent } from './modules/order/order-notification/order-notification.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
       {
         path: 'order',
         component: OrderComponent,
+      },
+      {
+        path: 'order/notification/:orderHash',
+        component: OrderNotificationComponent,
       },
       {
         path: 'profile',

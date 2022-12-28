@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from 'src/app/modules/cart/cart.component';
 import { ReplacePipe } from 'src/app/modules/common/pipe/replacePipe';
 import { ProfileComponent } from 'src/app/modules/profile/profile.component';
+import { OrderNotificationComponent } from 'src/app/modules/order/order-notification/order-notification.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProfileComponent } from 'src/app/modules/profile/profile.component';
     CartComponent,
     OrderComponent,
     ReplacePipe,
-    ProfileComponent
+    ProfileComponent,
+    OrderNotificationComponent
   ],
   imports: [
     CommonModule,

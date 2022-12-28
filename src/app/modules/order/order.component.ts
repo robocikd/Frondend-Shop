@@ -72,10 +72,14 @@ export class OrderComponent implements OnInit {
         } as OrderDto)
         .subscribe({
           next: (orderSummary) => {
-            this.orderSummary = orderSummary;
             this.cookieService.delete('cartId');
             this.cartIconService.cartChange(0);
             this.errorMessage = false;
+            if (orderSummary.redirectUrl) {
+              window.location.href = orderSummary.redirectUrl;
+            } else {
+              this.orderSummary = orderSummary;
+            }
           },
           error: err => this.errorMessage = true
         });
