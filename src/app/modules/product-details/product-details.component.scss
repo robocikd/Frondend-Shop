@@ -1,8 +1,10 @@
 @import "../../../variables.scss";
+
 .description {
   margin-top: 20px;
   margin-bottom: 25px;
 }
+
 .price {
   font-size: 30px;
   font-weight: 500;
@@ -10,8 +12,23 @@
   margin-bottom: 20px;
   color: $warn;
 }
+
 .review {
   background-color: white;
   margin: 20px 0;
   padding: 7px;
+}
+
+.productSalePrice {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 10px;
+  color: green;
+}
+
+.productPriceDisable {
+  color: lightgray;
+  text-decoration: line-through;
+  font-size: 22px;
 }

@@ -26,7 +26,7 @@ export class AdminProductUpdateComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
     private adminMessageService: AdminMessageService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -39,6 +39,13 @@ export class AdminProductUpdateComponent implements OnInit {
         '',
         [
           Validators.required,
+          Validators.min(0),
+          Validators.pattern('\\d+\\.?\\d*'),
+        ],
+      ],
+      salePrice: [
+        '',
+        [
           Validators.min(0),
           Validators.pattern('\\d+\\.?\\d*'),
         ],
@@ -68,6 +75,7 @@ export class AdminProductUpdateComponent implements OnInit {
         fullDescription: this.productForm.get('fullDescription')?.value,
         categoryId: this.productForm.get('categoryId')?.value,
         price: this.productForm.get('price')?.value,
+        salePrice: this.productForm.get('salePrice')?.value,
         currency: this.productForm.get('currency')?.value,
         slug: this.productForm.get('slug')?.value,
         image: this.image,
@@ -105,6 +113,7 @@ export class AdminProductUpdateComponent implements OnInit {
       fullDescription: product.fullDescription,
       categoryId: product.categoryId,
       price: product.price,
+      salePrice: product.salePrice,
       currency: product.currency,
       slug: product.slug,
     });

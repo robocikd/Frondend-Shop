@@ -40,6 +40,13 @@ export class AdminProductAddComponent implements OnInit {
           Validators.pattern('\\d+\\.?\\d{0,2}'),
         ],
       ],
+      salePrice: [
+        '',
+        [
+          Validators.min(0),
+          Validators.pattern('\\d+\\.?\\d{0,2}'),
+        ],
+      ],
       currency: ['PLN', Validators.required],
       slug: ['', [Validators.required, Validators.minLength(4)]],
     });
