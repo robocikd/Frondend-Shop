@@ -1,1 +1,29 @@
-<p>home works!</p>
+<h1>Promowane produkty</h1>
+<mat-card *ngFor="let product of homePageData.saleProducts">
+    <div flexLayout="row">
+        <div flexLayout="column" fxFlex>
+            <mat-card-title> <a routerLink="{{'/products/' + product.slug}}">{{product.name}}</a> </mat-card-title>
+            <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+            <div flexLayout="row">
+                <a routerLink="{{'/products/' + product.slug}}">
+                    <img *ngIf="!product?.image" src="../../../assets/image-placeholder.png" mat-card-lg-image
+                        class="productImage">
+                    <img *ngIf="product?.image" src="{{'/api/data/productImages/' + product?.image}}" mat-card-lg-image
+                        class="productImage">
+                </a>
+                <mat-card-content fxFlex class="productContent">{{product.description}}
+                </mat-card-content>
+            </div>
+        </div>
+        <div>
+            <div class="productPrice" [ngClass]="{'productPriceDisable': product.salePrice}">{{product.price}}
+                {{product.currency}}</div>
+            <div *ngIf="product.salePrice" class="productSalePrice">{{product.salePrice}} {{product.currency}}</div>
+        </div>
+    </div>
+    <mat-card-actions align="end" fxLayoutGap="10">
+        <button mat-flat-button color="accent" routerLink="{{'/products/' + product.slug}}">Pokaż</button>
+        <button mat-flat-button color="primary" routerLink="/cart" [queryParams]="{productId: product?.id}">Do
+            koszyka</button>
+    </mat-card-actions>
+</mat-card>
